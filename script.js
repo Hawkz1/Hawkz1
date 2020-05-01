@@ -68,7 +68,7 @@ window.onload = () => { // fires when all elements have been initialized
         missesf.innerHTML = misses; // Set <mss> to the value of misses variable
     }
 
-    click.onclick = () => { 
+    click.onmousedown = () => { 
         var now = new Date(); // end time
         reaction = now.getTime() - reaction.getTime(); // calculate difference of timestamps (in ms) 
         reaRit = reaRit + reaction; 
