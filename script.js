@@ -91,7 +91,7 @@ window.onload = () => { // fires when all elements have been initialized
         console.log(reaAvg);
         hits++;
         hitsf.innerHTML = hits;
-        init = false; // now first execution has been completed and init is false
+        init = false; // now first execution has been completed and init is false.
     }
 
     resultbtn.onclick = () => {
