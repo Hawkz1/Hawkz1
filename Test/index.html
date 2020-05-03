@@ -1,0 +1,57 @@
+﻿<!--Detta är ett större projekt som jag gjorde under ett par veckor.-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Reaction time test</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+
+        <script src="script.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+
+    <body>
+        <div class="entire">
+            <t>Test your reaction time.<br>Wait for the screen to turn green, and click! </t>
+            <button>Start</button>
+        </div>
+        <div id = "bigger" class="wait" dn>
+            Wait for green color!
+        </div>
+        <div id = "bigger" class="click" dn>
+            Click
+        </div>
+        <div class="toofast" dn>
+            <t>You clicked too early!<br>Please click when the screen is green!</t>
+            <button>Continue</button>
+        </div>
+        <div class="result" dn>
+            <t>It took you <res></res>ms to click!</t>
+            <hs dn>You set a new highscore!</hs>
+            <button>Continue</button>
+        </div>
+        <div class="information">
+            Information about this session
+        </div>
+        <div class="highscore">
+            Highscore: <res>? </res>ms
+        </div>
+        <div class ="average">
+            Average: <avg>? </avg>ms
+        </div>
+        <div class ="misses">
+            Misses: <mss>0 </mss>
+        </div>
+        <div class ="hits"> 
+            Hits: <hst>0 </hst>
+        </div>
+        <footer>Alpha v.1.0 </footer>
+    </body>
+</html>
