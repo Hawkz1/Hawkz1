@@ -15,6 +15,7 @@ var reaFin = 0;
 var misses = 0;
 var hits = 0;
 var z = 0; 
+var boolG = 0;
 
 window.onload = () => { // fires when all elements have been initialized
     var go = 0;
