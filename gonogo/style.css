@@ -1,0 +1,159 @@
+
+/* --< main elements >-- */
+body {
+    background: #F7F7F7;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+}
+
+.click {
+    background: #4BDB6A;
+    color: #fff;
+}
+
+.click::selection {
+    color: none;
+    background: none;
+}
+
+.noclick {
+    background: #f7b500;
+    color: #fff;
+}
+
+.noclick::selection {
+    color: none;
+    background: none;
+}
+
+.wait {
+    background: #CE2636;
+    color: #fff;
+}
+
+.wait::selection {
+    color: none;
+    background: none;
+}
+.information {
+    background: rgb(35,35,35);
+    color: #fff;
+    display: block;
+    font-size: 0.9em;
+    height: auto;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 0px;
+    width: calc(25% - 8px);
+}
+
+/* --< highscore elements >-- */
+.highscore {
+    background: rgb(40,40,40);
+    color: #fff;
+    display: block;
+    font-size: 0.85em;
+    height: auto;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 25px;
+    width: calc(25% - 8px);
+}
+
+.hs {
+    color: rgb(12,85,225);
+}
+
+/* --< average elemnent >-- */
+.average {
+    background: rgb(45,45,45);
+    color: #fff;
+    display: block;
+    font-size: 0.85em;
+    height: auto;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 50px;
+    width: calc(25% - 8px);
+}
+
+/* --< misses element >-- */
+.misses {
+    background: rgb(50,50,50);
+    color: #fff;
+    display: block;
+    font-size: 0.85em;
+    height: auto;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 75px;
+    width: calc(25% - 8px);
+}
+
+/* --< hits element >-- */
+.hits {
+    background: rgb(55,55,55);
+    color: #fff;
+    display: block;
+    font-size: 0.85em;
+    height: auto;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 100px;
+    width: calc(25% - 8px);
+}
+
+/* --< footer element >-- */
+footer {
+    background: rgb(205,205,205);
+    bottom: 0;
+    font-size: 0.85em;
+    left: 0;
+    padding: 0 4px;
+    position: absolute;
+    text-align: center;
+    width: calc(100% - 8px);
+}
+
+/* --< button element >-- */
+button {
+    background: #575fcf;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #f7f7f7;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px;
+    padding: 5px 12px;
+}
+
+/* --< [dn] attribute for hiding elements easily >-- */
+[dn] {
+    display: none;
+}
+
+/* --< id for elements which need bigger font-size >-- */
+
+#bigger {
+    font-size: 100px;
+}
