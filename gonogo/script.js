@@ -14,6 +14,7 @@ var rFunc = 0;
 var reaFin = 0;
 var misses = 0;
 var hits = 0;
+var z = 0; 
 
 window.onload = () => { // fires when all elements have been initialized
     var go = 0;
@@ -43,7 +44,11 @@ window.onload = () => { // fires when all elements have been initialized
         wait.removeAttribute("dn");
         timer = setTimeout(() => {
             wait.setAttribute("dn", "");
-            boolG = (Math.floor((Math.random()*2)));
+            if (z > 0) {
+                boolG = (Math.floor((Math.random()*2)));
+            } else {
+                z++; 
+            }
             console.log(boolG);
             if(boolG==0) {
                 noClick.removeAttribute("dn");
