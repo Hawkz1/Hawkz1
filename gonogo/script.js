@@ -131,22 +131,6 @@ window.onload = () => { // fires when all elements have been initialized
 
 
 
-/* 
-setInterval(function(){   
-    boolG = (Math.floor((Math.random()*2)));
-    console.log(boolG);
-    if(boolG==0) {
-        noClick.removeAttribute("dn");
-        click.setAttribute("dn", "");
-    }
-    if(boolG==1) {
-        click.removeAttribute("dn");
-        noClick.setAttribute("dn", "");
-    }
-}, 1000); 
-*/ 
-
-
 
 
 
