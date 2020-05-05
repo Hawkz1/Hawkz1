@@ -45,11 +45,6 @@ window.onload = () => { // fires when all elements have been initialized
         wait.removeAttribute("dn");
         timer = setTimeout(() => {
             wait.setAttribute("dn", "");
-            if (z > 0) {
-                boolG = (Math.floor((Math.random()*2)));
-            } else {
-                z++; 
-            }
             console.log(boolG);
             if(boolG==0) {
                 noClick.removeAttribute("dn");
