@@ -46,6 +46,7 @@ window.onload = () => { // fires when all elements have been initialized
         timer = setTimeout(() => {
             wait.setAttribute("dn", "");
             console.log(boolG);
+            boolG = (Math.floor((Math.random()*2)));
             if(boolG==0) {
                 noClick.removeAttribute("dn");
                 click.setAttribute("dn", "");
