@@ -1,17 +1,12 @@
-﻿
-
-/* NOTE: the attribute "dn" is used to hide an element (see CSS style declaration)
-That means following: 
-    example.setAttribute("dn","") hides, 
-    example.removeAttribute("dn") shows an element.
+/*
+Deklarerar några variabler
+Elementet <dn> har en egenskap i css ( visible: false; ) som döjler element när de får den
 */
-
-var timer; // stores timeout of waiting time
-var reaction; // stores time it took you to react on green color
-var highscore = 0; // stores your personal highscore
-var init = true; // controls if codes executes first time
+var timer; 
+var reaction; 
+var highscore = 0; 
+var init = true; 
 var elapsed;
-var reaRit = 0;
 var reaTries = 1;
 var reaAvg = 0;
 var rit = 0; 
@@ -27,7 +22,7 @@ var hits = 0;
 window.onload = () => { // fires when all elements have been initialized
 
 
-    // Get required elements 
+    // Deklarerar variabler nu som pekar på elementer i själva sidan, detta gör det mycket enklare att förstå koden 
 
     var entire = document.getElementsByClassName("entire")[0];
     var entirebtn = entire.getElementsByTagName("button")[0];
@@ -48,38 +43,37 @@ window.onload = () => { // fires when all elements have been initialized
     var missesf = document.getElementsByClassName("misses")[0].getElementsByTagName("mss")[0];
     var hitsf = document.getElementsByClassName("hits")[0].getElementsByTagName("hst")[0];
 
-    // set onclick handlers 
+    // Deklarerar funktionen för vad som händer när man trycker på knappen i starten
 
     entirebtn.onclick = () => {
-        entire.setAttribute("dn", "");
-        wait.removeAttribute("dn");
+        entire.setAttribute("dn", ""); // döjler vita skärmen
+        wait.removeAttribute("dn"); // visar röda wait skärmen 
         timer = setTimeout(() => {
-            wait.setAttribute("dn", "");
-            click.removeAttribute("dn");
-            reaction = new Date(); // start time
-        }, Math.floor((Math.random() * 8) + 4) * Math.floor((Math.random() * 501) + 250));
-    } // setTimeout to show green screen with random waiting time
+            wait.setAttribute("dn", ""); // döjler röda skärmen 
+            click.removeAttribute("dn"); // visar gröna skärmen
+            reaction = new Date(); // starta timern 
+        }, Math.floor((Math.random() * 8) + 4) * Math.floor((Math.random() * 501) + 250)); // slumpmässig period tills funktionen sätts igång
+    } // setTimeout visar en grön skärm efter en random period
 
-    wait.onmousedown = () => { // if red screen is clicked, show "too fast" screen
-        clearTimeout(timer); // cancel green screen showing timeout
+    wait.onmousedown = () => { // detta är en funktion som visar Too fast om man trycker för tidigt
+        clearTimeout(timer); // Tar bort timern för gröna skärmen
         wait.setAttribute("dn", "");
         toofast.removeAttribute("dn");
-        misses++; // Add 1 to miss variable
-        missesf.innerHTML = misses; // Set <mss> to the value of misses variable
+        misses++; // Lägger på ett på miss variablen
+        missesf.innerHTML = misses; // Sätter jag <mss> elementet i sidan till misses 
     }
 
     click.onmousedown = () => { 
-        var now = new Date(); // end time
-        reaction = now.getTime() - reaction.getTime(); // calculate difference of timestamps (in ms) 
-        reaRit = reaRit + reaction; 
-        click.setAttribute("dn", ""); 
-        result.removeAttribute("dn");
-        resultf.innerHTML = reaction; // write current reaction time to screen
-        if (highscore > reaction || init) { // fires if current result is better (or the code executes the first time)
-            highscore = reaction;
-            highscoref.innerHTML = highscore;
-            /*result.getElementsByTagName("hs")[0].removeAttribute("dn");*/
+        var now = new Date(); // avslutar tiden
+        reaction = now.getTime() - reaction.getTime(); // beräknar skillnaden
+        click.setAttribute("dn", ""); // döjler gröna skärmen
+        result.removeAttribute("dn"); // visar resultalt skärmen
+        resultf.innerHTML = reaction; // skriv reaktions tiden till skärmen
+        if (highscore > reaction || init) { // sätter igång enbart om tiden som du fick precis är den högsta 
+            highscore = reaction; // ny highscore 
+            highscoref.innerHTML = highscore; // skriver den nya highscoren till highscoref elementet
         } 
+        //beräknar medelvärdet av alla försök (inte optimalt men det funkar)
         rFunc = rit; 
         rit = reaction + rFunc;
         x++; 
@@ -88,28 +82,27 @@ window.onload = () => { // fires when all elements have been initialized
         reaFin = Math.round(reaAvg);
 
         averagef.innerHTML = reaFin;
-        console.log(reaAvg);
         hits++;
         hitsf.innerHTML = hits;
-        init = false; // now first execution has been completed and init is false
+        init = false; // efter första gången blir init satt till false
     }
 
-    resultbtn.onclick = () => {
-        result.setAttribute("dn", "");
-        if (entire.hasAttribute("dn")) {
+    resultbtn.onclick = () => { // Scripten som sätter igång spelet igen efter ett försök 
+        result.setAttribute("dn", ""); // döjler resultalt skärmen
+        if (entire.hasAttribute("dn")) { // för en bug som händer ibland 
             entire.removeAttribute("dn");
         }
-        result.getElementsByTagName("hs")[0].setAttribute("dn", "");
+        result.getElementsByTagName("hs")[0].setAttribute("dn", ""); // döjla resultalt skärmen
     
-        entire.setAttribute("dn", "");
-        wait.removeAttribute("dn");
+        entire.setAttribute("dn", ""); // döjla skärmen
+        wait.removeAttribute("dn"); // döjla röda skärmen
         timer = setTimeout(() => {
-            wait.setAttribute("dn", "");
-            click.removeAttribute("dn");
-            reaction = new Date(); // start time
+            wait.setAttribute("dn", ""); // döjler röda skärmen
+            click.removeAttribute("dn"); // visar gröna skärmen 
+            reaction = new Date(); // startar timern 
         }, Math.floor((Math.random() * 8) + 4) * Math.floor((Math.random() * 501) + 250));
     }
-    toofastbtn.onclick = () => {
+    toofastbtn.onclick = () => { // Scripten som sätter igång spelet igen efter man har tryckt för fort 
         toofast.setAttribute("dn", "");
         if (entire.hasAttribute("dn")) {
             entire.removeAttribute("dn");
@@ -119,7 +112,7 @@ window.onload = () => { // fires when all elements have been initialized
         timer = setTimeout(() => {
             wait.setAttribute("dn", "");
             click.removeAttribute("dn");
-            reaction = new Date(); // start time
+            reaction = new Date(); // startar tiden
         }, Math.floor((Math.random() * 8) + 4) * Math.floor((Math.random() * 501) + 250));
     }
 }
